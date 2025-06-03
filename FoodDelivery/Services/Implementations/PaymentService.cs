@@ -4,7 +4,7 @@ using FoodDelivery.Models;
 using FoodDelivery.Repositories.Interfaces;
 using FoodDelivery.Services.Interfaces;
 
-namespace YourNamespace.Services.Implementations
+namespace FoodDelivery.Services.Implementations
 {
     public class PaymentService : IPaymentService
     {

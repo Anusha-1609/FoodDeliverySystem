@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using FoodDeliver.DTOs;
+using FoodDelivery.DTOs;
 using FoodDelivery.Models;
 using FoodDelivery.Repositories.Interfaces;
 using FoodDelivery.Services.Interfaces;

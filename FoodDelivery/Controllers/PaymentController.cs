@@ -2,7 +2,7 @@
 using FoodDelivery.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace YourNamespace.Controllers
+namespace FoodDelivery.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
