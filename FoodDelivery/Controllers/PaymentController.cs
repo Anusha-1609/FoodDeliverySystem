@@ -1,107 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using FoodDelivery.DTOs;
+using FoodDelivery.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using FoodDelivery.Models;
 
-namespace FoodDelivery.Controllers
+namespace YourNamespace.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class PaymentController : ControllerBase
     {
-        private readonly FoodDeliverySystemContext _context;
+        private readonly IPaymentService _service;
 
-        public PaymentController(FoodDeliverySystemContext context)
+        public PaymentController(IPaymentService service)
         {
-            _context = context;
+            _service = service;
         }
 
-        // GET: api/Payment
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Payment>>> GetPayments()
+        public async Task<IActionResult> GetAll()
         {
-            return await _context.Payments.ToListAsync();
+            return Ok(await _service.GetAllAsync());
         }
 
-        // GET: api/Payment/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Payment>> GetPayment(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            var payment = await _context.Payments.FindAsync(id);
-
-            if (payment == null)
-            {
-                return NotFound();
-            }
-
-            return payment;
+            var payment = await _service.GetByIdAsync(id);
+            if (payment == null) return NotFound();
+            return Ok(payment);
         }
 
-        // PUT: api/Payment/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutPayment(int id, Payment payment)
-        {
-            if (id != payment.PaymentId)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(payment).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PaymentExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Payment
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Payment>> PostPayment(Payment payment)
+        public async Task<IActionResult> Create(CreatePaymentDto dto)
         {
-            _context.Payments.Add(payment);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetPayment", new { id = payment.PaymentId }, payment);
+            var created = await _service.AddAsync(dto);
+            return CreatedAtAction(nameof(Get), new { id = created.PaymentID }, created);
         }
 
-        // DELETE: api/Payment/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePayment(int id)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, CreatePaymentDto dto)
         {
-            var payment = await _context.Payments.FindAsync(id);
-            if (payment == null)
-            {
-                return NotFound();
-            }
-
-            _context.Payments.Remove(payment);
-            await _context.SaveChangesAsync();
-
+            await _service.UpdateAsync(id, dto);
             return NoContent();
         }
 
-        private bool PaymentExists(int id)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
         {
-            return _context.Payments.Any(e => e.PaymentId == id);
+            await _service.DeleteAsync(id);
+            return NoContent();
         }
     }
 }

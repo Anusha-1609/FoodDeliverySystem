@@ -1,11 +1,10 @@
 using FoodDelivery.Models;
 using FoodDelivery.Profiles;
+using FoodDelivery.Repositories.Implementations;
+using FoodDelivery.Services.Implementations;
+using FoodDelivery.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using YourNamespace.Repositories.Implementations;
-using YourNamespace.Repositories.Interfaces;
-using YourNamespace.Services.Implementations;
-using YourNamespace.Services.Interfaces;
-
+using FoodDelivery.Repositories.Interfaces;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

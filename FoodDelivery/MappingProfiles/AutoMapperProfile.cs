@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
-using FoodDeliver.DTOs;
 using FoodDelivery.DTOs;
 using FoodDelivery.Models;
-using YourNamespace.DTOs;
 
 namespace FoodDelivery.Profiles
 {
@@ -21,6 +19,8 @@ namespace FoodDelivery.Profiles
             CreateMap<CreateOrderDto, Order>();
             CreateMap<Delivery, DeliveryDto>();
             CreateMap<CreateDeliveryDto, Delivery>();
+            CreateMap<Payment, PaymentDto>();
+            CreateMap<CreatePaymentDto, Payment>();
         }
     }
 } 

@@ -1,8 +1,8 @@
 ﻿using FoodDelivery.Models;
 using Microsoft.EntityFrameworkCore;
-using YourNamespace.Repositories.Interfaces;
+using FoodDelivery.Repositories.Interfaces;
 
-namespace YourNamespace.Repositories.Implementations
+namespace FoodDelivery.Repositories.Implementations
 {
     public class OrderRepository : IOrderRepository
     {

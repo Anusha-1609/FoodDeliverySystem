@@ -1,5 +1,5 @@
 ﻿using FoodDelivery.Models;
-namespace YourNamespace.Repositories.Interfaces
+namespace FoodDelivery.Repositories.Interfaces
 {
     public interface ICustomerRepository
     {

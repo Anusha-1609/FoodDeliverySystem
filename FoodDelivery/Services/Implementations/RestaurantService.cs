@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using FoodDeliver.DTOs;
 using FoodDelivery.Models;
-using YourNamespace.Repositories.Interfaces;
-using YourNamespace.Services.Interfaces;
+using FoodDelivery.Repositories.Interfaces;
+using FoodDelivery.Services.Interfaces;
 
-namespace YourNamespace.Services.Implementations
+namespace FoodDelivery.Services.Implementations
 {
     public class RestaurantService : IRestaurantService
     {

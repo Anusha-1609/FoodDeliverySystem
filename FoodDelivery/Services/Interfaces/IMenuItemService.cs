@@ -1,6 +1,6 @@
 ﻿using FoodDelivery.DTOs;
 
-namespace YourNamespace.Services.Interfaces
+namespace FoodDelivery.Services.Interfaces
 {
     public interface IMenuItemService
     {

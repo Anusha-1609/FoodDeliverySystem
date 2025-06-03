@@ -1,4 +1,4 @@
-﻿namespace FoodDeliver.DTOs
+﻿namespace FoodDelivery.DTOs
 {
     public class RestaurantDto
     {

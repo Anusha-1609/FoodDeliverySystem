@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
-using YourNamespace.DTOs;
-using YourNamespace.Repositories.Interfaces;
-using YourNamespace.Services.Interfaces;
+using FoodDelivery.DTOs;
+using FoodDelivery.Repositories.Interfaces;
+using FoodDelivery.Services.Interfaces;
 using System.Security.Cryptography;
 using System.Text;
 using FoodDelivery.Models;
 
-namespace YourNamespace.Services.Implementations
+namespace FoodDelivery.Services.Implementations
 {
     public class CustomerService : ICustomerService
     {

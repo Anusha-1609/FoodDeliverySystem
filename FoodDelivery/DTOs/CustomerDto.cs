@@ -1,4 +1,4 @@
-﻿namespace YourNamespace.DTOs
+﻿namespace FoodDelivery.DTOs
 {
     public class CustomerDto
     {

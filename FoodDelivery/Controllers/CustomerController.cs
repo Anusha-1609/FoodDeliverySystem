@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using YourNamespace.DTOs;
-using YourNamespace.Services.Interfaces;
+using FoodDelivery.DTOs;
+using FoodDelivery.Services.Interfaces;
 
-namespace YourNamespace.Controllers
+namespace FoodDelivery.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
