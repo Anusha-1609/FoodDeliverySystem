@@ -1,0 +1,14 @@
+﻿using FoodDelivery.Models;
+namespace YourNamespace.Repositories.Interfaces
+{
+    public interface ICustomerRepository
+    {
+        Task<IEnumerable<Customer>> GetAllAsync();
+        Task<Customer?> GetByIdAsync(int id);
+        Task<Customer?> GetByEmailAsync(string email);
+        Task AddAsync(Customer customer);
+        void Update(Customer customer);
+        Task SaveChangesAsync();
+    }
+}
+ 
