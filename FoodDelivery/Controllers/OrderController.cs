@@ -15,12 +15,6 @@ namespace FoodDelivery.Controllers
             _service = service;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
-        {
-            return Ok(await _service.GetAllAsync());
-        }
-
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
@@ -34,20 +28,6 @@ namespace FoodDelivery.Controllers
         {
             var created = await _service.AddAsync(dto);
             return CreatedAtAction(nameof(Get), new { id = created.OrderID }, created);
-        }
-
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, CreateOrderDto dto)
-        {
-            await _service.UpdateAsync(id, dto);
-            return NoContent();
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            await _service.DeleteAsync(id);
-            return NoContent();
         }
     }
 }

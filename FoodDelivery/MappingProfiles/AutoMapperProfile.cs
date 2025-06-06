@@ -21,6 +21,9 @@ namespace FoodDelivery.Profiles
             CreateMap<CreateDeliveryDto, Delivery>();
             CreateMap<Payment, PaymentDto>();
             CreateMap<CreatePaymentDto, Payment>();
+            CreateMap<Cart, CartDto>();
+            CreateMap<CreateCartDto, Cart>();
+
         }
     }
 } 

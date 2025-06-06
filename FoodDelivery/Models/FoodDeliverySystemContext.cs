@@ -31,28 +31,29 @@ public partial class FoodDeliverySystemContext : DbContext
 
     public virtual DbSet<Restaurant> Restaurants { get; set; }
 
-   // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//        => optionsBuilder.UseSqlServer("Server=LTIN617710\\SQLEXPRESS02;Database=FoodDeliverySystem;Integrated Security=True;TrustServerCertificate=True");
+//    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+//        => optionsBuilder.UseSqlServer("Server=LTIN617710\\SQLEXPRESS02;Database=FoodDeliverySystem;Trusted_Connection=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Cart>(entity =>
         {
-            entity.HasKey(e => e.CartId).HasName("PK__Cart__51BCD79732189D6E");
+            entity.HasKey(e => e.CartId).HasName("PK__Cart__51BCD797E41B86BF");
 
             entity.ToTable("Cart");
 
             entity.Property(e => e.CartId).HasColumnName("CartID");
+            entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
             entity.Property(e => e.ItemId).HasColumnName("ItemID");
-            entity.Property(e => e.OrderId).HasColumnName("OrderID");
+
+            entity.HasOne(d => d.Customer).WithMany(p => p.Carts)
+                .HasForeignKey(d => d.CustomerId)
+                .HasConstraintName("FK__Cart__CustomerID__02FC7413");
 
             entity.HasOne(d => d.Item).WithMany(p => p.Carts)
                 .HasForeignKey(d => d.ItemId)
-                .HasConstraintName("FK__Cart__ItemID__59063A47");
-
-            entity.HasOne(d => d.Order).WithMany(p => p.Carts)
-                .HasForeignKey(d => d.OrderId)
-                .HasConstraintName("FK__Cart__OrderID__5812160E");
+                .HasConstraintName("FK__Cart__ItemID__03F0984C");
         });
 
         modelBuilder.Entity<Customer>(entity =>
@@ -69,6 +70,9 @@ public partial class FoodDeliverySystemContext : DbContext
             entity.Property(e => e.Name).HasMaxLength(100);
             entity.Property(e => e.PasswordHash).HasMaxLength(255);
             entity.Property(e => e.Phone).HasMaxLength(15);
+            entity.Property(e => e.Role)
+                .HasMaxLength(50)
+                .HasDefaultValue("Customer");
         });
 
         modelBuilder.Entity<Delivery>(entity =>
@@ -174,7 +178,11 @@ public partial class FoodDeliverySystemContext : DbContext
             entity.Property(e => e.Address).HasMaxLength(255);
             entity.Property(e => e.ContactEmail).HasMaxLength(100);
             entity.Property(e => e.Name).HasMaxLength(100);
+            entity.Property(e => e.PasswordHash).HasMaxLength(255);
             entity.Property(e => e.Phone).HasMaxLength(15);
+            entity.Property(e => e.Role)
+                .HasMaxLength(50)
+                .HasDefaultValue("RestaurantOwner");
         });
 
         OnModelCreatingPartial(modelBuilder);

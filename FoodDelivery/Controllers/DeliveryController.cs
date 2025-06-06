@@ -1,9 +1,11 @@
 ﻿using FoodDelivery.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using FoodDelivery.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FoodDelivery.Controllers
 {
+    [Authorize(Roles = "RestaurantOwner")]
     [ApiController]
     [Route("api/[controller]")]
     public class DeliveryController : ControllerBase
@@ -15,11 +17,6 @@ namespace FoodDelivery.Controllers
             _service = service;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
-        {
-            return Ok(await _service.GetAllAsync());
-        }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
@@ -43,11 +40,5 @@ namespace FoodDelivery.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            await _service.DeleteAsync(id);
-            return NoContent();
-        }
     }
 }

@@ -1,55 +1,8 @@
 [
   {
-    "ContainingType": "FoodDelivery.Controllers.CustomerController",
-    "Method": "GetAll",
-    "RelativePath": "api/Customer",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FoodDelivery.Controllers.CustomerController",
-    "Method": "Get",
-    "RelativePath": "api/Customer/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FoodDelivery.Controllers.CustomerController",
-    "Method": "Update",
-    "RelativePath": "api/Customer/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "dto",
-        "Type": "FoodDelivery.DTOs.CreateCustomerDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FoodDelivery.Controllers.CustomerController",
+    "ContainingType": "FoodDelivery.Controllers.AuthController",
     "Method": "Login",
-    "RelativePath": "api/Customer/login",
+    "RelativePath": "api/Auth/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -63,13 +16,134 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FoodDelivery.Controllers.CustomerController",
+    "ContainingType": "FoodDelivery.Controllers.AuthController",
     "Method": "Register",
-    "RelativePath": "api/Customer/register",
+    "RelativePath": "api/Auth/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "FoodDelivery.DTOs.RegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDelivery.Controllers.CartController",
+    "Method": "Create",
+    "RelativePath": "api/Cart",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "FoodDelivery.DTOs.CreateCartDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDelivery.Controllers.CartController",
+    "Method": "GetById",
+    "RelativePath": "api/Cart/{cartId}/{customerId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cartId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "customerId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDelivery.Controllers.CartController",
+    "Method": "Update",
+    "RelativePath": "api/Cart/{cartId}/{customerId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cartId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "customerId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "FoodDelivery.DTOs.CreateCartDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDelivery.Controllers.CartController",
+    "Method": "Delete",
+    "RelativePath": "api/Cart/{cartId}/{customerId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cartId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "customerId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDelivery.Controllers.CartController",
+    "Method": "GetByCustomerId",
+    "RelativePath": "api/Cart/{customerId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customerId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDelivery.Controllers.CustomerController",
+    "Method": "Update",
+    "RelativePath": "api/Customer/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
       {
         "Name": "dto",
         "Type": "FoodDelivery.DTOs.CreateCustomerDto",
@@ -80,16 +154,6 @@
   },
   {
     "ContainingType": "FoodDelivery.Controllers.DeliveryController",
-    "Method": "GetAll",
-    "RelativePath": "api/Delivery",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FoodDelivery.Controllers.DeliveryController",
     "Method": "Create",
     "RelativePath": "api/Delivery",
     "HttpMethod": "POST",
@@ -142,22 +206,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FoodDelivery.Controllers.DeliveryController",
-    "Method": "Delete",
-    "RelativePath": "api/Delivery/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "FoodDelivery.Controllers.MenuItemController",
     "Method": "GetAll",
     "RelativePath": "api/MenuItem",
@@ -178,22 +226,6 @@
       {
         "Name": "dto",
         "Type": "FoodDelivery.DTOs.CreateMenuItemDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FoodDelivery.Controllers.MenuItemController",
-    "Method": "Get",
-    "RelativePath": "api/MenuItem/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -237,13 +269,24 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FoodDelivery.Controllers.OrderController",
-    "Method": "GetAll",
-    "RelativePath": "api/Order",
+    "ContainingType": "FoodDelivery.Controllers.MenuItemController",
+    "Method": "Get",
+    "RelativePath": "api/MenuItem/{itemId}/{restaurantId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "itemId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "restaurantId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -279,53 +322,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FoodDelivery.Controllers.OrderController",
-    "Method": "Update",
-    "RelativePath": "api/Order/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "dto",
-        "Type": "FoodDelivery.DTOs.CreateOrderDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FoodDelivery.Controllers.OrderController",
-    "Method": "Delete",
-    "RelativePath": "api/Order/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FoodDelivery.Controllers.PaymentController",
-    "Method": "GetAll",
-    "RelativePath": "api/Payment",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "FoodDelivery.Controllers.PaymentController",
     "Method": "Create",
     "RelativePath": "api/Payment",
@@ -336,101 +332,6 @@
       {
         "Name": "dto",
         "Type": "FoodDelivery.DTOs.CreatePaymentDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FoodDelivery.Controllers.PaymentController",
-    "Method": "Get",
-    "RelativePath": "api/Payment/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FoodDelivery.Controllers.PaymentController",
-    "Method": "Update",
-    "RelativePath": "api/Payment/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "dto",
-        "Type": "FoodDelivery.DTOs.CreatePaymentDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FoodDelivery.Controllers.PaymentController",
-    "Method": "Delete",
-    "RelativePath": "api/Payment/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FoodDelivery.Controllers.RestaurantController",
-    "Method": "GetAll",
-    "RelativePath": "api/Restaurant",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FoodDelivery.Controllers.RestaurantController",
-    "Method": "Create",
-    "RelativePath": "api/Restaurant",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "FoodDelivery.DTOs.CreateRestaurantDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FoodDelivery.Controllers.RestaurantController",
-    "Method": "Get",
-    "RelativePath": "api/Restaurant/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -452,22 +353,6 @@
       {
         "Name": "dto",
         "Type": "FoodDelivery.DTOs.CreateRestaurantDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FoodDelivery.Controllers.RestaurantController",
-    "Method": "Delete",
-    "RelativePath": "api/Restaurant/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

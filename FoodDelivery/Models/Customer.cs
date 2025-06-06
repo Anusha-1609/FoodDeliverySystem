@@ -17,5 +17,9 @@ public partial class Customer
 
     public string? PasswordHash { get; set; }
 
+    public string Role { get; set; } = null!;
+
+    public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
+
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }

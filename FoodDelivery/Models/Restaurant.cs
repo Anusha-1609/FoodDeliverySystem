@@ -15,6 +15,10 @@ public partial class Restaurant
 
     public string? Phone { get; set; }
 
+    public string Role { get; set; } = null!;
+
+    public string? PasswordHash { get; set; }
+
     public virtual ICollection<MenuItem> MenuItems { get; set; } = new List<MenuItem>();
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();

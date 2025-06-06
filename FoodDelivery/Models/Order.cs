@@ -15,8 +15,6 @@ public partial class Order
 
     public decimal? TotalAmount { get; set; }
 
-    public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
-
     public virtual Customer? Customer { get; set; }
 
     public virtual Delivery? Delivery { get; set; }
